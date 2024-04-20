@@ -1,0 +1,13 @@
+Make two buttons (1) `checkout` and (2) `confirm order`
+
+When user clicks `checkout`, use Stripe API to create/update a new payment intent (in the backend). 
+This also creates a client secret that is later sent to Stripe API to confirm payments. (I don't think client secret should be exposed to the frontend)
+
+Create an <Elements> Stripe component and in there include some of Stripe's elements. For example, you can use <PaymentElement/> to embed a payment.
+Use `const elements = useElements();` to reference the elements that you created and pass them into stripe.confirmPayment()
+After loading stripe, you can use it within <Elements> using `const stripe = useStripe();`
+
+You can use webhooks to Stripe notify you back when it is done doing whatever task it was doing, for example finished with stripe.confirmPayment().
+The webhook could call another one of your backend endpoints to finish processing the order
+
+To use webhooks locally, you must install and setup the Stripe CLI. Instructions are found in the webhooks dashboard on stripe.com
