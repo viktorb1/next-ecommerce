@@ -4,7 +4,7 @@ import { NextResponse } from "next/server"
 import { Session, getServerSession } from "next-auth"
 import { authOptions } from '../auth/[...nextauth]/route'
 
-const prisma = new PrismaClient()
+import prisma from '@/util/db'
 
 export async function GET(request: Request | {} = {}) {
     const user = await getServerSession(authOptions)
@@ -16,7 +16,7 @@ export async function GET(request: Request | {} = {}) {
 
     const orders = await prisma.order.findMany({
         where: {
-            userId: user.user!.id
+            userId: user.user!.id,
         },
         include: {
             products: true

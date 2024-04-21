@@ -9,7 +9,14 @@ const Product = ({ name, image, unit_amount, id, description, metadata }: Produc
   return (
     <Link href={{ pathname: `/product/${id}`, query: { name, image, unit_amount, id, description, features } }}>
       <div className="text-gray-400">
-        <Image src={image} alt={name} width={800} height={800} className="w-full h-[300px] object-cover rounded-xl" />
+        <Image
+          src={image}
+          alt={name}
+          width={800}
+          height={800}
+          priority={true}
+          className="w-full h-[300px] object-cover rounded-xl"
+        />
         <h1 className="font-medium py-2">{name}</h1>
         <h2 className="text-sm text-teal-700">{unit_amount ? formatPrice(unit_amount) : "N/A"}</h2>
       </div>

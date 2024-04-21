@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCartStore } from "@/store";
 import { formatPrice } from "@/util/priceFormat";
 import { IoAddCircle, IoRemoveCircle } from "react-icons/io5";
-import cart from "/public/cart.png";
+import cart from "@/public/cart.png";
 import { motion, AnimatePresence } from "framer-motion";
 import Checkout from "./Checkout";
 import OrderConfirmed from "./OrderConfirmed";

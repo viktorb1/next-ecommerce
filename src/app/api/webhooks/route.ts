@@ -2,10 +2,9 @@ import Stripe from 'stripe'
 import { PrismaClient } from "@prisma/client"
 import { NextRequest, NextResponse } from "next/server"
 import { buffer } from "micro"
-
+import prisma from '@/util/db'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
-const prisma = new PrismaClient()
 
 
 

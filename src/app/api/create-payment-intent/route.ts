@@ -7,7 +7,7 @@ import { Prisma } from "@prisma/client"
 import { PrismaClient } from "@prisma/client"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string)
-const prisma = new PrismaClient()
+import prisma from '@/util/db'
 
 
 // don't do this, this is hackable if a hacker uses burpsuite or something similar

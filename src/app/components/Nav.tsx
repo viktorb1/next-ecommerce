@@ -14,7 +14,7 @@ const Nav = ({ user }: Session) => {
   return (
     <nav className="flex justify-between items-center py-12">
       <Link href={"/"}>
-        <h1>Styled</h1>
+        <h1 className="font-lobster text-4xl">Styled</h1>
       </Link>
       <ul className="flex items-center gap-12">
         <li onClick={() => cartStore.toggleCart()} className="flex items-center text-3xl relative cursor-pointer">
@@ -37,15 +37,17 @@ const Nav = ({ user }: Session) => {
           </li>
         )}
         {user && (
-          <li>
-            <Image
-              src={user?.image as string}
-              alt={user.name as string}
-              width={48}
-              height={48}
-              className="rounded-full"
-            />
-          </li>
+          <Link href={"/dashboard"}>
+            <li>
+              <Image
+                src={user?.image as string}
+                alt={user.name as string}
+                width={48}
+                height={48}
+                className="rounded-full"
+              />
+            </li>
+          </Link>
         )}
       </ul>
       <AnimatePresence>{cartStore.isOpen && <Cart />}</AnimatePresence>

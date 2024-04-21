@@ -6,7 +6,7 @@ import type { Adapter } from "next-auth/adapters"
 import Stripe from 'stripe'
 import type { User } from "next-auth"
 
-const prisma = new PrismaClient()
+import prisma from '@/util/db'
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as Adapter,
